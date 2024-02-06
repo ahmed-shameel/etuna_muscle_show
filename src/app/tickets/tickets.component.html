@@ -1,0 +1,62 @@
+<div class="imgbox">
+    <div class="centered-text" #delayedText [@fadeInOut]>
+        <img class="center-fit" src="assets/IMG_7746.png" alt="Logo" />
+    </div>
+    <img class="center-fit" src="assets/ticket.webp" alt="Etuna Muscle Show" />
+</div>
+
+<div class="no-style">
+    <div class="container">
+        <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+            <h2>Biljetter</h2>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input formControlName="name" placeholder="Ange ditt namn" type="text" class="form-control" id="name"
+                    required />
+                <span style="color: red" *ngIf="
+            ticketForm.get('name')?.invalid &&
+            ticketForm.get('name')?.touched
+          ">Namn är obligatoriskt<br /></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-postadress</label>
+                <input formControlName="email" placeholder="Ange din E-postadress" type="email" class="form-control"
+                    id="email" />
+                <span style="color: red" *ngIf="
+            ticketForm.get('email')?.invalid &&
+            ticketForm.get('email')?.touched
+          ">Skriv in en gilig E-postadress<br /></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Telefonnummer</label>
+                <input formControlName="phone" placeholder="Ange ditt nummer" type="number" class="form-control"
+                    id="phone" />
+            </div>
+
+            <div class="form-group">
+                <div class="form-group"></div>
+                <label for="category">Typ av biljett</label>
+                <select formControlName="category" class="form-control" id="category">
+                    <option *ngFor="let category of categories" [value]="category">
+                        {{ category }}
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="ticketForm.invalid">
+                Skicka
+            </button>
+        </form>
+        <div class="info-section">
+            <h2 class="ticket-info">Biljettyper</h2>
+            <p><b>Bronze</b><br>Med bronze får du en plats längre bak i salen</p>
+            <p><b>Silver</b><br>Med silverbiljett får du en plats bakom VIP stolerna relativt nära scenen</p>
+            <p><b>Guld</b><br>Med guldbiljett har du en VIP plats nära scenen där du har en närmare blick på tävlande
+            </p>
+            <p><b>OBS:</b> Betalning sker via Swish till 123-528 35 93.</p>
+        </div>
+    </div>
+</div>

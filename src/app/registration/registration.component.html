@@ -1,0 +1,104 @@
+<div class="imgbox">
+  <div class="centered-text" #delayedText [@fadeInOut]>
+    <h1>REGISTRERA DIG HÄR</h1>
+  </div>
+  <div class="video-background">
+    <video src="assets/regbg.mp4" autoplay loop muted></video>
+  </div>
+</div>
+
+<div class="no-style">
+  <div class="container">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <h1>Registrering</h1>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input formControlName="from_name" placeholder="Ange ditt namn" type="text" class="form-control" id="name"
+          required />
+        <span style="color: red" *ngIf="
+            registrationForm.get('from_name')?.invalid &&
+            registrationForm.get('from_name')?.touched
+          ">Namn är obligatoriskt<br /></span>
+      </div>
+
+      <div class="form-group">
+        <label for="personnr">Personnummer</label>
+        <input formControlName="personnr" placeholder="Ange ditt personnummer" type="number" class="form-control"
+          id="personnr" />
+        <span style="color: red" *ngIf="
+            registrationForm.get('personnr')?.invalid &&
+            registrationForm.get('personnr')?.touched
+          ">Skriv in ett giltigt personnummer<br /></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-postadress</label>
+        <input formControlName="from_email" placeholder="Ange din E-postadress" type="email" class="form-control"
+          id="email" />
+        <span style="color: red" *ngIf="
+            registrationForm.get('from_email')?.invalid &&
+            registrationForm.get('from_email')?.touched
+          ">Skriv in en gilig E-postadress<br /></span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefonnummer</label>
+        <input formControlName="phone" placeholder="Ange ditt nummer" type="number" class="form-control" id="phone" />
+      </div>
+
+      <div class="form-group">
+        <label for="height">Längd</label>
+        <input formControlName="height" placeholder="Ange din längd" type="text" class="form-control" id="height" />
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Vikt</label>
+        <input formControlName="weight" placeholder="Ange din vikt" type="text" class="form-control" id="weight" />
+      </div>
+
+      <div class="form-group">
+        <label for="category">Klass</label>
+        <select formControlName="category" class="form-control" id="category">
+          <option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="extra">Dubblering <em style="color: grey;">- valfritt</em></label>
+        <input formControlName="extra" placeholder="Ange extra klasser" type="text" class="form-control" id="extra" />
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="registrationForm.invalid">
+        Skicka
+      </button>
+    </form>
+    <div class="info-section">
+
+      <h2>Viktig Information</h2>
+
+      <h3>Tävlingslicenskrav</h3>
+      <p>För att delta i tävlingar krävs en giltig tävlingslicens utfärdad av Svenska Bodybuilding och Fitnessförbundet
+        (SBFF). Om du för närvarande inte innehar en sådan licens, ansök om en genom
+        denna<a href="https://www.sbffsverige.se/foreningar/ansokan-om-tavlingslicens/">
+          länk</a>.</p>
+
+      <h3>Spraytan</h3>
+      <p>Deltagare har möjlighet att boka spraytan inför evenemanget. För att göra en reservation, vänligen <a
+          href="https://onsitetan.bokamera.se/book?selectedServiceId=106066">använd denna länk</a>.</p>
+
+      <h3>Registreringsavgift</h3>
+      <p>Registreringsavgiften uppgår till 999 SEK för deltagelse i en klass. För deltagare som önskar tävla i flera
+        klasser
+        tillkommer en kostnad på 399 SEK för varje ytterligare klass.</p>
+
+      <h3>Betalningsinstruktioner</h3>
+      <p>Betalning av registreringsavgiften ska ske via Swish. Vänligen använd följande nummer för överföring:
+        123-528 35 93.
+      </p>
+
+      <p>Om det finns ytterligare information eller assistans du behöver, tveka inte att kontakta oss.</p>
+    </div>
+  </div>
+</div>
