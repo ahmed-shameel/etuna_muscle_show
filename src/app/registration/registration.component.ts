@@ -30,6 +30,7 @@ export class RegistrationComponent implements AfterViewInit {
   });
 
   categories = [
+    "Beginners open class mens physique",
     "Mens physique master open (40+)",
     "Mens physique junior -174 cm",
     "Mens physique junior +175 cm",
@@ -44,6 +45,7 @@ export class RegistrationComponent implements AfterViewInit {
     "Bodyfitness junior open",
     "Bodyfitness -163 cm",
     "Bodyfitness +164 cm",
+    "Beginners open class bikini fitness",
     "Bikini fitness master open (40+)",
     "Bikini fitness master open (35+)",
     "Bikini fitness junior open",
@@ -85,11 +87,11 @@ export class RegistrationComponent implements AfterViewInit {
       height: this.registrationForm.value.height,
       weight: this.registrationForm.value.weight,
       category: this.registrationForm.value.category,
+      extra: this.registrationForm.value.extra,
     });
   }
 
   ngAfterViewInit() {
-    // Wait for the view to be initialized and then add the visible class after 1000 milliseconds (1 second)
     setTimeout(() => {
       this.renderer.addClass(this.delayedText.nativeElement, "visible");
     }, 500);
