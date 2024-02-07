@@ -9,9 +9,13 @@ import { RegistrationComponent } from "./registration/registration.component";
 import { TicketsComponent } from "./tickets/tickets.component";
 import { ContactComponent } from "./contact/contact.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+import {
+  CommonModule,
+  HashLocationStrategy,
+  LocationStrategy,
+} from "@angular/common";
 import { MainNavComponent } from "./main-nav/main-nav.component";
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from "./footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +35,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
