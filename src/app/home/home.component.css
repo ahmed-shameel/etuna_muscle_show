@@ -1,7 +1,7 @@
 .imgbox {
     position: relative;
     background-color: rgb(101, 101, 101);
-    height: 80vh;
+    height: 65vh;
 }
 
 .imgbox img {
@@ -21,7 +21,7 @@
 
 .centered-text {
     position: absolute;
-    top: 55%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -31,8 +31,10 @@
 }
 
 .centered-text img {
-    width: 100%;
+    width: 300px;
+    /* adjust this value as needed */
     height: auto;
+    /* adjust this value as needed */
 }
 
 .visible {
