@@ -56,6 +56,12 @@
       </div>
 
       <div class="form-group">
+        <label for="athletenumber">Atletnummer</label>
+        <input formControlName="athletenumber" placeholder="Atletnummer" type="text" class="form-control"
+          id="athletenumber" />
+      </div>
+
+      <div class="form-group">
         <label for="category">Klass</label>
         <select formControlName="category" class="form-control" id="category">
           <option *ngFor="let category of categories" [value]="category">

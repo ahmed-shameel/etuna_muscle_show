@@ -25,6 +25,7 @@ export class RegistrationComponent implements AfterViewInit {
     phone: new FormControl("", Validators.required),
     height: new FormControl("", Validators.required),
     weight: new FormControl("", Validators.required),
+    athletenumber: new FormControl("", Validators.required),
     category: new FormControl("", Validators.required),
     extra: new FormControl(""),
   });
@@ -86,6 +87,7 @@ export class RegistrationComponent implements AfterViewInit {
       phone: this.registrationForm.value.phone,
       height: this.registrationForm.value.height,
       weight: this.registrationForm.value.weight,
+      athletenumber: this.registrationForm.value.athletenumber,
       category: this.registrationForm.value.category,
       extra: this.registrationForm.value.extra,
     });
